@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border"
+    tools:context=".MainActivity">
+
+    <!-- ▣ 바깥 배경 레이어 (RelativeLayout 배경화면) -->
+    <RelativeLayout
+        android:id="@+id/bgLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border"><!-- 여기에 백그라운드 이미지 입력 -->
+
+        <!-- ▣ 안쪽 UI 레이어 (RelativeLayout UI) -->
+        <RelativeLayout
+            android:id="@+id/uiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- 오른쪽 캐릭터 (항상 우측, 수직 중앙) -->
+            <ImageView
+                android:id="@+id/imgCharacter"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="50dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sample_image"
+                android:contentDescription="@string/app_name"/>
+
+            <!-- 왼쪽 버튼 묶음 (항상 좌측, 수직 중앙 / 캐릭터 왼쪽 공간에 배치) -->
+            <LinearLayout
+                android:id="@+id/buttonGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/imgCharacter"
+                android:layout_marginEnd="110dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:text="시작"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#9C27B0"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"/>
+
+                <Button
+                    android:id="@+id/btnSetting"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:text="설정"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#9C27B0"/>
+            </LinearLayout>
+
+            <!-- 좌측 하단 전환 버튼 (항상 좌하단 고정) -->
+            <Button
+                android:id="@+id/btnChange"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="전환"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#9C27B0"/>
+
+            <!-- 말풍선 테두리는 @drawable/border 로 가정 -->
+            <LinearLayout
+                android:id="@+id/speechBubble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/imgCharacter"
+                android:layout_alignTop="@id/imgCharacter"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/border"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSpeech"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="샘플용 대사"
+                    android:textStyle="bold"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
