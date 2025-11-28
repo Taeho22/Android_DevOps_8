@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 곡 선택 화면 전체 UI -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- 배경 컨테이너 (RelativeLayout 배경화면) -->
+    <!-- 배경 컨테이너 (연한 회색) -->
     <RelativeLayout
-        android:id="@+id/bg_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="12dp"
         android:background="#F4F6F8">
 
-        <!-- 실제 UI 배치용 RelativeLayout -->
+        <!-- 실제 UI가 들어가는 흰색 영역 -->
         <RelativeLayout
             android:id="@+id/ui_container"
             android:layout_width="match_parent"
@@ -21,23 +20,34 @@
             android:padding="12dp"
             android:background="#FFFFFF">
 
-            <!-- 오른쪽 상세 패널(이미지뷰/보더 느낌의 카드) -->
+            <!-- 왼쪽의 RecyclerView: 곡 목록을 스크롤 표시 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_songs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/detail_card"
+                android:layout_marginEnd="12dp"
+                android:clipToPadding="false"
+                android:paddingEnd="12dp" />
+
+            <!-- 오른쪽 흰색 박스: 선택한 곡 상세 정보 -->
             <LinearLayout
                 android:id="@+id/detail_card"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="12dp"
                 android:orientation="vertical"
                 android:padding="14dp"
                 android:background="@drawable/box_border">
 
-                <!-- 상단 정보: 곡 이름 / 점수 등급 (LinearLayout) -->
+                <!-- 곡 제목 + 등급 라인 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <!-- 곡 제목 -->
                     <TextView
                         android:id="@+id/tv_title"
                         android:layout_width="0dp"
@@ -48,29 +58,40 @@
                         android:textSize="18sp"
                         android:padding="8dp" />
 
+                    <!-- 등급 (SS, S, A 등) -->
                     <TextView
                         android:id="@+id/tv_rank"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="점수 등급"
+                        android:text="등급"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:padding="8dp" />
                 </LinearLayout>
 
-                <!-- 점수(TextView) -->
+                <!-- 점수 -->
                 <TextView
                     android:id="@+id/tv_score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="점수: 0,000"
+                    android:text="점수: 0"
                     android:textSize="16sp"
                     android:padding="8dp" />
 
-                <!-- 난이도 선택 (RadioGroup 가로) -->
+                <!-- 미리듣기: 재생/일시정지 버튼 -->
+                <ImageButton
+                    android:id="@+id/btn_play"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="6dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="재생/일시정지"
+                    android:src="@android:drawable/ic_media_play" />
+
+                <!-- 난이도 선택 버튼 3개 -->
                 <RadioGroup
                     android:id="@+id/rg_difficulty"
                     android:layout_width="match_parent"
@@ -78,6 +99,7 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
+                    <!-- Easy -->
                     <RadioButton
                         android:id="@+id/rb_easy"
                         android:layout_width="0dp"
@@ -90,6 +112,7 @@
                         android:button="@android:color/transparent"
                         android:padding="6dp" />
 
+                    <!-- Normal -->
                     <RadioButton
                         android:id="@+id/rb_normal"
                         android:layout_width="0dp"
@@ -103,6 +126,7 @@
                         android:layout_marginStart="8dp"
                         android:padding="6dp" />
 
+                    <!-- Hard -->
                     <RadioButton
                         android:id="@+id/rb_hard"
                         android:layout_width="0dp"
@@ -116,65 +140,17 @@
                         android:layout_marginStart="8dp"
                         android:padding="6dp" />
                 </RadioGroup>
-            </LinearLayout>
-
-            <!-- 왼쪽: 스크롤 가능한 곡 선택 영역 -->
-            <ScrollView
-                android:id="@+id/song_list_scroll"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@id/detail_card"
-                android:layout_marginEnd="12dp">
-
-                <RadioGroup
-                    android:id="@+id/rg_song_list"
+                <!-- 🔽 여기에 게임 시작 버튼 추가 -->
+                <Button
+                    android:id="@+id/btn_start_game"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <!-- 각 항목: RadioButton + 보더 -->
-                    <RadioButton
-                        android:id="@+id/rb_song_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:text="곡 이름 1"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:background="@drawable/radio_choice_bg"
-                        android:button="@android:color/transparent"
-                        android:layout_marginBottom="10dp"/>
-
-                    <RadioButton
-                        android:id="@+id/rb_song_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:text="곡 이름 2"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:background="@drawable/radio_choice_bg"
-                        android:button="@android:color/transparent"
-                        android:layout_marginBottom="10dp"/>
-
-                    <RadioButton
-                        android:id="@+id/rb_song_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:text="곡 이름 3"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:background="@drawable/radio_choice_bg"
-                        android:button="@android:color/transparent"
-                        android:layout_marginBottom="10dp"/>
-
-                    <!-- 필요 시 항목을 계속 추가 -->
-                </RadioGroup>
-            </ScrollView>
-
+                    android:layout_marginTop="12dp"
+                    android:text="게임 시작"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+            </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
 </FrameLayout>
