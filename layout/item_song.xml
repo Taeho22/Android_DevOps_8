@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RecyclerView 한 줄(곡 하나) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:paddingStart="16dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/item_song_bg">
+
+    <!-- 곡 이름 -->
+    <TextView
+        android:id="@+id/tv_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="곡 이름"
+        android:textSize="16sp" />
+</LinearLayout>
