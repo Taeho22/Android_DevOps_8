@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 배경 레이아웃 -->
+    <RelativeLayout
+        android:id="@+id/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        style="@style/MyBGColor">
+    </RelativeLayout>
+
+    <!-- 곡 선택 화면 전체 UI -->
+    <RelativeLayout
+        android:id="@+id/ui_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/MyBGColor"
+        android:padding="12dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_btn"
+            style="@style/MyButtonStyle"
+            android:layout_width="105dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="뒤로" />
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="300dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            style="@style/MyBoxStyle"
+            android:gravity="center"
+            android:layout_marginStart="50dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_songs"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:clipToPadding="false" />
+
+        </LinearLayout>
+        <!-- 왼쪽의 RecyclerView: 곡 목록을 스크롤 표시 -->
+
+
+
+        <!-- 오른쪽 흰색 박스: 선택한 곡 상세 정보 -->
+        <LinearLayout
+            android:id="@+id/detail_card"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            style="@style/MyBoxStyle"
+            android:padding="14dp">
+
+            <!-- 곡 제목 + 등급 라인 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 곡 제목 -->
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:padding="8dp"
+                    android:text="곡 이름"
+                    style="@style/MyTextViewStyle"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- 등급 (SS, S, A 등) -->
+                <TextView
+                    android:id="@+id/tv_rank"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:padding="8dp"
+                    android:text="등급"
+                    style="@style/MyTextViewStyle"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 점수 -->
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:padding="8dp"
+                style="@style/MyTextViewStyle"
+                android:text="점수: 0"
+                android:textSize="16sp" />
+
+            <!-- 미리듣기: 재생/일시정지 버튼 -->
+            <ImageButton
+                android:id="@+id/btn_play"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="재생/일시정지"
+                android:src="@android:drawable/ic_media_play" />
+
+            <!-- 난이도 선택 버튼 3개 -->
+            <RadioGroup
+                android:id="@+id/rg_difficulty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+
+                android:orientation="horizontal">
+
+                <!-- Easy -->
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_easy"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    style="@style/MyCircleButtonStyle"
+                    android:padding="6dp"
+                    android:textSize="13dp"
+                    android:text="Easy"/>
+
+                <!-- Normal -->
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_normal"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    style="@style/MyCircleButtonStyle"
+                    android:textSize="13dp"
+                    android:text="Normal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!-- Hard -->
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_hard"
+                    style="@style/MyCircleButtonStyle"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:button="@android:color/transparent"
+                    android:padding="6dp"
+                    android:textSize="13dp"
+                    android:text="Hard" />
+            </RadioGroup>
+            <!-- 🔽 여기에 게임 시작 버튼 추가 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_start_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="8dp"
+                android:text="게임 시작"
+                style="@style/MyButtonStyle"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- 실제 UI가 들어가는 흰색 영역 -->
+</FrameLayout>

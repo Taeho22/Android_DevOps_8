@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 배경 화면 -->
+    <RelativeLayout
+        android:id="@+id/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/MyBGColor">
+
+    </RelativeLayout>
+
+    <!-- UI 영역 -->
+    <RelativeLayout
+        android:id="@+id/ui_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="20dp">
+
+        <!-- 점수/이름/난이도 표시 -->
+        <LinearLayout
+            android:id="@+id/info_layout"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            style="@style/MyBoxStyle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/tv_song_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="곡 이름"
+                android:textSize="30dp"
+                style="@style/MyTextViewStyle"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score: 100점"
+                android:textSize="18sp"
+                style="@style/MyTextViewStyle"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_difficulty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="난이도: 중간"
+                    style="@style/MyTextViewStyle"
+                    android:layout_marginEnd="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/MyTextViewStyle"
+                    android:text="등급: A" />
+
+            </LinearLayout>
+
+            <!-- 버튼 영역 -->
+            <LinearLayout
+                android:id="@+id/button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="24dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_restart"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="다시 시작"
+                    style="@style/MyButtonStyle"
+                    android:layout_marginEnd="16dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="돌아가기"
+                    style="@style/MyButtonStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- 등급별 색상 -->
+    <color name="grade_sss">#FFD700</color> <!-- 금색 -->
+    <color name="grade_ss">#FFC107</color>
+    <color name="grade_s">#FF9800</color>
+    <color name="grade_a">#2196F3</color>
+    <color name="grade_b">#4CAF50</color>
+    <color name="grade_c">#9E9E9E</color>
+    <color name="grade_d">#BDBDBD</color>
+</resources>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main">
+
+    <!-- 배경 레이어 -->
+    <RelativeLayout
+        android:id="@+id/BGLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/MyBGColor" >
+
+        <!-- 오른쪽 캐릭터 (항상 우측, 수직 중앙) -->
+        <ImageButton
+            android:id="@+id/CharImgBtn"
+            android:layout_width="350dp"
+            android:layout_height="1000dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+
+            style="@style/MyCharacter_up"/>
+
+        <LinearLayout
+            android:id="@+id/TextBox"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="50dp"
+            android:padding="10dp"
+            style="@style/MyBoxStyle"
+            android:visibility="invisible">
+
+            <!-- 텍스트 -->
+            <TextView
+                android:id="@+id/tvSpeech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="샘플용 대사"
+                style="@style/MyTextViewStyle"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- UI 레이어  -->
+    <RelativeLayout
+        android:id="@+id/UILayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!-- 왼쪽 버튼 묶음 (항상 좌측, 수직 중앙 / 캐릭터 왼쪽 공간에 배치) -->
+        <LinearLayout
+            android:id="@+id/buttonGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="150dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStart"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                style="@style/MyButtonStyle"
+                android:text="시작"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSetting"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:text="설정"
+                style="@style/MyButtonStyle"/>
+
+        </LinearLayout>
+
+        <!-- 좌측 하단 전환 버튼 (항상 좌하단 고정) -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMP"
+            android:layout_width="131dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="전환"
+            style="@style/MyButtonStyle"/>
+
+    </RelativeLayout>
+
+    <!-- 설정 창 -->
+    <LinearLayout
+        android:id="@+id/settingBox"
+        android:layout_gravity="center"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:gravity="center"
+        style="@style/MyBoxStyle"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <!-- 테마 설정 버튼 -->
+        <TextView
+            android:id="@+id/btnSetChar"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            style="@style/MyBoxStyle"
+            android:textSize="25dp"
+            android:text="테마 설정"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:track="@drawable/switch_track_selector"
+            android:thumb="@drawable/switch_track_thumb" />
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="닫기"
+            style="@style/MyButtonStyle"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</FrameLayout>

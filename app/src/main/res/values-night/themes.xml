@@ -1,0 +1,66 @@
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Base.Theme.Android_DevOps_Project_8" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your dark theme here. &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_dark_primary</item> &ndash;&gt;-->
+<!--        <item name="android:windowFullscreen">true</item>-->
+<!--        &lt;!&ndash;No Title Bar&ndash;&gt;-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+
+
+<!--</resources>-->
+<resources>
+
+    <style name="MyBoxStyle" >
+        <item name="android:background">@drawable/black_box</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@null</item>
+    </style>
+    <style name="MyCircleStyle">
+        <item name="android:background">@drawable/black_circle</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@null</item>
+    </style>
+
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/black_button</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@null</item>
+    </style>
+
+    <style name="MyCircleButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/black_button_circle</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@null</item>
+    </style>
+
+    <style name="MyTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="MyBGColor">
+        <item name="android:background">#000000</item>
+    </style>
+
+    <style name="MyCharacter">
+        <item name="android:background">@drawable/dark</item>
+    </style>
+    <style name="MyCharacter_up">
+        <item name="android:background">@drawable/dark_up</item>
+    </style>
+    <style name="MyCharacter_face">
+        <item name="android:background">@drawable/dark_face</item>
+    </style>
+</resources>

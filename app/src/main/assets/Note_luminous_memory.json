@@ -1,0 +1,32 @@
+{
+  "bpm": 160,
+  "offset": 2000,
+  "notes": [
+    { "time": 3520, "lane": 0, "type": "tap" },
+    { "time": 4120, "lane": 1, "type": "tap" },
+
+    { "time": 5300, "lane": 2, "type": "long_start" },
+    { "time": 6200, "lane": 2, "type": "long_end" },
+
+    { "time": 7200, "lane": 1, "type": "tap" },
+    { "time": 7200, "lane": 3, "type": "tap" },
+
+    { "time": 8520, "lane": 0, "type": "tap" },
+    { "time": 9120, "lane": 1, "type": "tap" },
+
+    { "time": 10300, "lane": 2, "type": "long_start" },
+    { "time": 11200, "lane": 2, "type": "long_end" },
+
+    { "time": 12200, "lane": 1, "type": "tap" },
+    { "time": 12200, "lane": 3, "type": "tap" },
+
+    { "time": 13520, "lane": 0, "type": "tap" },
+    { "time": 14120, "lane": 1, "type": "tap" },
+
+    { "time": 15300, "lane": 2, "type": "long_start" },
+    { "time": 16200, "lane": 2, "type": "long_end" },
+
+    { "time": 17200, "lane": 1, "type": "tap" },
+    { "time": 17200, "lane": 3, "type": "tap" }
+  ]
+}
